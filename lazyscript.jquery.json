@@ -1,0 +1,34 @@
+{
+"name": "lazyscript",
+"title": "jQuery Lazy Script",
+"description": "jQuery plugin for lazy loading scripts to reduce the page loading time. lazy types are: scroll,visible,delay,click,hover",
+"keywords": [
+"lazy",
+"lazyscript"
+],
+ "version": "1.0.0",
+ "author": {
+"name": "Ravishanker Kusuma",
+"url": "http://hayageek.com"
+},
+"maintainers": [
+{
+"name": "Ravishanker Kusuma",
+"email": "ravi@hayageek.com",
+"url": "http://hayageek.com"
+}
+],
+"licenses": [
+{
+"type": "MIT",
+"url": "https://github.com/hayageek/jquery-lazy-script/blob/master/LICENSE"
+}
+],
+"homepage": "https://github.com/hayageek/jquery-lazy-script",
+"docs": "https://github.com/hayageek/jquery-lazy-script",
+"download": "https://github.com/hayageek/jquery-lazy-script",
+"demo": "http://hayageek.com/examples/jquery/lazy-script/index.php",
+"dependencies": {
+"jquery": ">=1.6"
+}
+}

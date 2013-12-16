@@ -1,0 +1,8 @@
+/*!
+ * jQuery Lazy script
+ * version: 1.0.0
+ * @requires jQuery v1.5 or later
+ * Copyright (c) 2013 Ravishanker Kusuma
+ * http://hayageek.com/
+ */
+(function(a){jQuery.cachedScript=function(d,b){var c={dataType:"script",cache:true,url:d,complete:function(e,f){b.call(this)}};return jQuery.ajax(c)};a.lazyscript=function(k){var j=a.extend({type:false,id:false,time:1000,partial:true,scripts:[],success:false},k);var f=false;if(j.type){switch(j.type){case"scroll":a(window).scroll(g);break;case"hover":a("#"+j.id).hover(c);break;case"click":a("#"+j.id).click(c);break;case"visible":a(window).scroll(i);break;case"delay":if(j.time){setTimeout(b,j.time)}break;default:alert("Invalid lazy script type");break}}function d(n,l,m){if(n.removeEventListener){n.removeEventListener(l,m,false)}if(n.detachEvent){n.detachEvent("on"+l,m)}}function b(){if(!f){f=true;e()}}function c(){if(!f){f=true;setTimeout(e,5);d(a("#"+j.id).get(0),"hover",c)}}function h(){if(!f){f=true;setTimeout(e,5);d(a("#"+j.id).get(0),"click",c)}}function g(){if(!f){f=true;setTimeout(e,5);d(window,"scroll",g)}}function i(){var l=a("#"+j.id);t=l.get(0);$w=a(window);viewTop=$w.scrollTop();viewBottom=viewTop+$w.height();_top=l.offset().top;_bottom=_top+l.height();compareTop=j.partial===true?_bottom:_top;compareBottom=j.partial===true?_top:_bottom;if(!f){if((compareBottom<=viewBottom)&&(compareTop>=viewTop)){f=true;d(window,"scroll",i);setTimeout(e,5)}}}function e(){var o=j.scripts.length;var n=0;for(var l=0;l<o;l++){jQuery.cachedScript(j.scripts[l],function(){n++})}(function m(){if(n==o){if(j.success){j.success.call(this)}}else{window.setTimeout(m,20)}})()}}}(jQuery));
