@@ -8,9 +8,8 @@ jQuery plugin for lazy loading scripts to reduce the page loading time.
 ###Lazy Types
 Lazy types are: scroll, visible, click, hover, delay
 
-####With lazy type :scroll 
-Scripts are loaded when the window is scrolled.
----
+###With lazy type :scroll 
+scripts are loaded when the window is scrolled.
 ````javascript
     var options = {
         type: "scroll",
@@ -26,9 +25,8 @@ Scripts are loaded when the window is scrolled.
     $.lazyscript(options);
 ````
 
-####With lazy type : visible
-Scripts are loaded when a specific div is visible on-screen ( while scrolling).
----
+###With lazy type : visible
+scripts are loaded when a specific div is visible on-screen ( while scrolling).
 ````javascript
     var options = {
         type: "visible",
@@ -46,9 +44,8 @@ Scripts are loaded when a specific div is visible on-screen ( while scrolling).
 
 ````
 
-####with lazy type: click
-Scripts are loaded when clicked on a div
----
+###with lazy type: click
+scripts are loaded when clicked on a div
 ````javascript
     var options = {
         type: "click",
@@ -66,9 +63,8 @@ Scripts are loaded when clicked on a div
 
 ````
 
-####with lazy type: hover
-Scripts are loaded when mouse hover on a div
----
+###with lazy type: hover
+scripts are loaded when mouse hover on a div
 ````javascript
     var options = {
         type: "hover",
@@ -86,9 +82,8 @@ Scripts are loaded when mouse hover on a div
 
 ````
 
-####with lazy type: delay
-Scripts are loaded with some delay
----
+###with lazy type: delay
+scripts are loaded with some delay
 ````javascript
     var options = {
         type: "delay",
