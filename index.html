@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Jquery-lazy-script by hayageek</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Jquery-lazy-script</h1>
+        <p>jQuery Lazy Script</p>
+
+        <p class="view"><a href="https://github.com/hayageek/jquery-lazy-script">View the Project on GitHub <small>hayageek/jquery-lazy-script</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/hayageek/jquery-lazy-script/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/hayageek/jquery-lazy-script/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/hayageek/jquery-lazy-script">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="jquery-lazy-script-plugin" class="anchor" href="#jquery-lazy-script-plugin"><span class="octicon octicon-link"></span></a>jQuery Lazy Script Plugin</h1>
+
+<h2>
+<a name="overview" class="anchor" href="#overview"><span class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>jQuery plugin for lazy loading scripts to reduce the page loading time.</p>
+
+<h3>
+<a name="lazy-types" class="anchor" href="#lazy-types"><span class="octicon octicon-link"></span></a>Lazy Types</h3>
+
+<p>Lazy types are: scroll, visible, click, hover, delay</p>
+
+<h3>
+<a name="with-lazy-type-scroll" class="anchor" href="#with-lazy-type-scroll"><span class="octicon octicon-link"></span></a>With lazy type :scroll</h3>
+
+<p>scripts are loaded when the window is scrolled.</p>
+
+<div class="highlight highlight-javascript"><pre>    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">"scroll"</span><span class="p">,</span>
+        <span class="nx">scripts</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">"http://platform.twitter.com/widgets.js"</span><span class="p">,</span>
+            <span class="s2">"http://connect.facebook.net/en_US/all.js#xfbml=1&amp;appId=445577382175430"</span><span class="p">,</span>
+            <span class="s2">"https://apis.google.com/js/plusone.js"</span>
+                <span class="p">],</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+             <span class="nx">FB</span><span class="p">.</span><span class="nx">init</span><span class="p">({</span> <span class="nx">status</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">cookie</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span> <span class="nx">xfbml</span><span class="o">:</span> <span class="kc">true</span> <span class="p">});</span>
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">lazyscript</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+</pre></div>
+
+<h3>
+<a name="with-lazy-type--visible" class="anchor" href="#with-lazy-type--visible"><span class="octicon octicon-link"></span></a>With lazy type : visible</h3>
+
+<p>scripts are loaded when a specific div is visible on-screen ( while scrolling).</p>
+
+<div class="highlight highlight-javascript"><pre>    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">"visible"</span><span class="p">,</span>
+        <span class="nx">id</span><span class="o">:</span><span class="s2">"mydiv"</span><span class="p">,</span> <span class="c1">//div Id</span>
+        <span class="nx">scripts</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">"1.js"</span><span class="p">,</span>
+            <span class="s2">"2.js"</span><span class="p">,</span>
+            <span class="s2">"3.js"</span>
+                <span class="p">],</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">lazyscript</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+
+</pre></div>
+
+<h3>
+<a name="with-lazy-type-click" class="anchor" href="#with-lazy-type-click"><span class="octicon octicon-link"></span></a>with lazy type: click</h3>
+
+<p>scripts are loaded when clicked on a div</p>
+
+<div class="highlight highlight-javascript"><pre>    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">"click"</span><span class="p">,</span>
+        <span class="nx">id</span><span class="o">:</span><span class="s2">"mybutton"</span><span class="p">,</span>
+        <span class="nx">scripts</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">"1.js"</span><span class="p">,</span>
+            <span class="s2">"2.js"</span><span class="p">,</span>
+            <span class="s2">"3.js"</span>
+                <span class="p">],</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">lazyscript</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+
+</pre></div>
+
+<h3>
+<a name="with-lazy-type-hover" class="anchor" href="#with-lazy-type-hover"><span class="octicon octicon-link"></span></a>with lazy type: hover</h3>
+
+<p>scripts are loaded when mouse hover on a div</p>
+
+<div class="highlight highlight-javascript"><pre>    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">"hover"</span><span class="p">,</span>
+        <span class="nx">id</span><span class="o">:</span><span class="s2">"mybutton"</span><span class="p">,</span>
+        <span class="nx">scripts</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">"1.js"</span><span class="p">,</span>
+            <span class="s2">"2.js"</span><span class="p">,</span>
+            <span class="s2">"3.js"</span>
+                <span class="p">],</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">lazyscript</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+
+</pre></div>
+
+<h3>
+<a name="with-lazy-type-delay" class="anchor" href="#with-lazy-type-delay"><span class="octicon octicon-link"></span></a>with lazy type: delay</h3>
+
+<p>scripts are loaded with some delay</p>
+
+<div class="highlight highlight-javascript"><pre>    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="nx">type</span><span class="o">:</span> <span class="s2">"delay"</span><span class="p">,</span>
+        <span class="nx">time</span><span class="o">:</span><span class="mi">5000</span><span class="p">,</span> <span class="c1">//5secs</span>
+        <span class="nx">scripts</span><span class="o">:</span> <span class="p">[</span>
+            <span class="s2">"1.js"</span><span class="p">,</span>
+            <span class="s2">"2.js"</span><span class="p">,</span>
+            <span class="s2">"3.js"</span>
+                <span class="p">],</span>
+        <span class="nx">success</span><span class="o">:</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+        <span class="p">}</span>
+    <span class="p">};</span>
+    <span class="nx">$</span><span class="p">.</span><span class="nx">lazyscript</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+
+</pre></div>
+
+<h4>
+<a name="tutorial" class="anchor" href="#tutorial"><span class="octicon octicon-link"></span></a>Tutorial</h4>
+
+<hr><p><a href="http://hayageek.com/examples/jquery/lazy-script/index.php">http://hayageek.com/examples/jquery/lazy-script/index.php</a></p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/hayageek">hayageek</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
